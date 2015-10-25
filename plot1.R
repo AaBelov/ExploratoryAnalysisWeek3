@@ -1,0 +1,7 @@
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+library(dplyr)
+d <- summarise(group_by(NEI, year), s = sum(Emissions))
+png(filename = "plot1.png")
+plot(d, type = "l")
+dev.off()
